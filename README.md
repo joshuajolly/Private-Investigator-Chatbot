@@ -3,7 +3,7 @@ Step into the shoes of a Private Investigator called to the scene of a murder. A
 
 Went into this with absolutely no experience with AI and very limited experience in Javascript, so it was a huge challenge for me. Developed for the chatbot MindSumo competition, https://www.mindsumo.com/contests/chatbot. 
 
-Important note: A lot of this code is forked from IBM sources, I do not claim ownership over anything but the Conversations JSON material.
+Important note: A lot of this code is forked from IBM sources, I do not claim ownership over anything but the Conversation JSON material.
 
 ### How to use ###
 * Download the JSON file at \conversations\Private-Investigator-Chatbot.json to your computer.
