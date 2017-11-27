@@ -23,8 +23,11 @@ password=''
 workspace_id=''
 
 //USERNAME AND PASSWORD FOR TONE ANALYSIS
-tone_username=''
-tone_password=''
+
+/*
+tone_username='93546c34-2fbe-46fc-b39e-d67f11d530da'
+tone_password='8qChFtXcT8Zl'
+*/
 
 'use strict';
 
@@ -48,14 +51,14 @@ var conversation = new Conversation({
 });
 
 
-//Initialize Tone Analyzer
-var toneAnalyzer = new watson({
+//Initialize Tone Analyzer  fkzUY5QjhA_esrC4PsrW
+/*var toneAnalyzer = new watson({
   'username' : tone_username,
   'password' : tone_password,
   url: 'https://gateway.watsonplatform.net/tone-analyzer/api',
   version: 'v3',
   version_date:'2016-05-26'
-});
+});*/
 
 app.post('/api/message', function(req, res) {
   var workspace = workspace_id
@@ -66,32 +69,6 @@ app.post('/api/message', function(req, res) {
     input: req.body.input || {}
   };
 
-	function funcx()
-	   {
-	   try{
-	toneAnalyzer.tone(
-      {
-        text: payload.input.text,
-        tones: 'emotion'
-      },
-      function(err, tone) {
-        if (err) {
-        } else {
-          const emotionTones = tone.document_tone.tone_categories[0].tones;
-          const len = emotionTones.length;
-          for (let i = 0; i < len; i++) {
-            if (emotionTones[i].tone_id === 'anger') {
-              toneAngerScore = emotionTones[i].score;
-              break
-            }
-          }
-        } payload.context['anger'] = toneAngerScore;
-    })
-}catch(err){}
-	   setTimeout(funcx, 20000);
-	   }
-
-	funcx();
 
 
   conversation.message(payload, function(err, data) {
